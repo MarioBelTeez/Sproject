@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Les États-Unis now!</title>
+<style>
+  body, html {
+    margin: 0; padding: 0;
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    color: #222;
+  }
+  header {
+    background: #003366;
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  main {
+    max-width: 1000px;
+    margin: 2rem auto 3rem;
+    padding: 0 1rem;
+  }
+  /* Main section with two columns */
+  .main-section {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .left-col, .right-col {
+    background: white;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    padding: 1rem 1.5rem;
+    box-sizing: border-box;
+  }
+  .left-col {
+    flex: 1 1 55%;
+    display: flex;
+    flex-direction: column;
+  }
+  .right-col {
+    flex: 1 1 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  /* Video block */
+  .video-block iframe {
+    width: 100%;
+    height: 320px;
+    border: none;
+  }
+  /* Text blocks styling */
+  article {
+    margin-top: 1rem;
+  }
+  h2 {
+    color: #003366;
+    margin-bottom: 0.5rem;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 1rem;
+    border-radius: 4px;
+  }
+  /* Bottom section with three columns */
+  .bottom-section {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+  }
+  .bottom-section article {
+    background: white;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    flex: 1 1 30%;
+    box-sizing: border-box;
+  }
+
+  /* Disclaimer Modal */
+  .modal {
+    display: flex; /* show initially */
+    position: fixed;
+    z-index: 9999;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    align-items: center;
+    justify-content: center;
+  }
+  .modal.hidden {
+    display: none;
+  }
+  .modal-content {
+    background: white;
+    padding: 2rem 2.5rem;
+    max-width: 600px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    position: relative;
+  }
+  .modal-content h2 {
+    margin-top: 0;
+    color: #003366;
+  }
+  .modal-content p {
+    margin: 1rem 0;
+    font-size: 1rem;
+  }
+  .modal-button {
+    margin-top: 1.5rem;
+    padding: 0.7rem 2rem;
+    background: #003366;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .modal-button:hover {
+    background: #0055aa;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .main-section {
+      flex-direction: column;
+    }
+    .left-col, .right-col {
+      flex: 1 1 100%;
+    }
+    .bottom-section {
+      flex-direction: column;
+    }
+    .bottom-section article {
+      flex: 1 1 100%;
+      margin-bottom: 1rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  Les États-Unis now!
+</header>
+
+<!-- Disclaimer Modal -->
+<div id="disclaimerModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
+  <div class="modal-content">
+    <h2 id="modalTitle">Mention Légale / Disclaimer</h2>
+    <p id="modalDesc">Ce projet (scolaire) a été réalisé pour dénoncer les risques de l'intelligence artificielle dans le futur dans les fake news.</p>
+    <p><strong>LA MAJORITÉ DES INFORMATIONS SONT FAUSSES.</strong></p>
+    <p>Ce projet est un exemple de l’utilisation de l’IA pour des raisons non éthiques et potentiellement dangereuses. Les fake news, si bien développées, peuvent impacter une population et causer du désordre. Maintenant, avec le développement rapide de l’IA, de nouveaux dangers s’exposent à nous.</p>
+    <button id="acceptBtn" class="modal-button" aria-label="Accepter et entrer sur le site">J'accepte</button>
+  </div>
+</div>
+
+<main id="content" style="display:none;">
+  <section class="main-section">
+    <div class="left-col">
+      <article class="video-block">
+        <iframe src="https://www.youtube.com/embed/lgM-1n5o4M0" title="Vidéo Reportage" allowfullscreen></iframe>
+      </article>
+      <article>
+        <h2>Critiques des Médias</h2>
+        <p><strong>Reportage WCVB News Center</strong></p>
+        <p>Il a critiqué les médias, en particulier CNN, les accusant de diffuser de fausses informations et d’alimenter l’instabilité. Il a annoncé un plan visant à rétablir l’ordre, réduire la criminalité et améliorer le taux d’emploi.</p>
+      </article>
+    </div>
+    <div class="right-col">
+      <article>
+        <h2>Incident et Réponse</h2>
+        <p>Suite à l’incident, les autorités auraient suspecté des immigrés d’être impliqués. Lors d’un discours prononcé depuis une cabine en verre pare-balles, Trump a déclaré vouloir prendre des mesures drastiques en réponse aux menaces contre la sécurité nationale, affirmant que ce n’était pas une question de racisme, mais de protection du pays.</p>
+      </article>
+      <article>
+        <img src="https://i.imgur.com/eimKdkX.png" alt="Image illustrative" />
+      </article>
+    </div>
+  </section>
+
+  <section class="bottom-section" aria-label="Autres articles">
+    <article>
+      <h2>Impact Économique</h2>
+      <p>La réduction de l’immigration peut déséquilibrer le marché du travail si elle n’est pas compensée par des politiques efficaces de formation, d’intégration, et de soutien à certains secteurs. Elle peut temporairement répondre à des pressions politiques, mais à long terme, une économie diversifiée et dynamique bénéficie souvent de l’immigration.</p>
+    </article>
+    <article>
+      <h2>Débat sur la Criminalité</h2>
+      <p>L’idée que la réduction de l’immigration ferait baisser la criminalité est souvent avancée dans certains discours politiques. Toutefois, les données réelles montrent que les immigrés ne sont pas plus criminels que les natifs, et parfois même moins. La criminalité dépend de nombreux facteurs comme la pauvreté, l’exclusion sociale ou l’accès à l’éducation. Réduire l’immigration ne garantit donc pas une baisse du crime. Il est important de se baser sur des faits, et non sur des stéréotypes. Une approche équilibrée et humaine reste essentielle.</p>
+    </article>
+    <article>
+      <h2>Homogénéisation du Territoire</h2>
+      <p>L’homogénéisation du territoire américain fait référence à la volonté de créer une population plus uniforme sur le plan culturel, linguistique ou identitaire. Certains défendent cette idée pour renforcer l’unité nationale et limiter les tensions communautaires. Elle peut aussi viser à préserver certaines valeurs perçues comme "traditionnelles". Toutefois, cette approche peut entraîner l’exclusion des minorités et la perte de diversité culturelle. Les États-Unis se sont historiquement construits sur l’immigration et la pluralité. Forcer une homogénéisation risque donc de compromettre les fondements mêmes de la société américaine.</p>
+    </article>
+  </section>
+</main>
+
+<footer>
+  <p style="text-align:center; padding:1rem; background:#222; color:#ddd; font-size:0.9rem;">
+    Sources : 
+    <a href="https://www.bbc.com/news" target="_blank" rel="noopener noreferrer" style="color:#aad4ff; text-decoration:none; margin:0 0.5rem;">BBC News</a> | 
+    <a href="https://edition.cnn.com" target="_blank" rel="noopener noreferrer" style="color:#aad4ff; text-decoration:none; margin:0 0.5rem;">CNN</a> | 
+    <a href="https://www.wcvb.com" target="_blank" rel="noopener noreferrer" style="color:#aad4ff; text-decoration:none; margin:0 0.5rem;">WCVB</a> | 
+    <a href="https://news.sky.com" target="_blank" rel="noopener noreferrer" style="color:#aad4ff; text-decoration:none;">Sky News</a>
+  </p>
+</footer>
+
+<script>
+  const modal = document.getElementById('disclaimerModal');
+  const acceptBtn = document.getElementById('acceptBtn');
+  const content = document.getElementById('content');
+
+  acceptBtn.onclick = function() {
+    modal.classList.add('hidden'); // hide modal
+    content.style.display = 'block'; // show main content
+  };
+</script>
+
+</body>
+</html>
