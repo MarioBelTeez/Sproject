@@ -1,155 +1,202 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Les États-Unis now!</title>
-<style>
-  body, html {
-    margin: 0; padding: 0;
-    font-family: Arial, sans-serif;
-    background: #f9f9f9;
-    color: #222;
-  }
-  header {
-    background: #003366;
-    color: white;
-    padding: 1rem 2rem;
-    text-align: center;
-    font-size: 1.8rem;
-    font-weight: bold;
-  }
-  main {
-    max-width: 1000px;
-    margin: 2rem auto 3rem;
-    padding: 0 1rem;
-  }
-  /* Main section with two columns */
-  .main-section {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
-  .left-col, .right-col {
-    background: white;
-    box-shadow: 0 0 8px rgba(0,0,0,0.1);
-    padding: 1rem 1.5rem;
-    box-sizing: border-box;
-  }
-  .left-col {
-    flex: 1 1 55%;
-    display: flex;
-    flex-direction: column;
-  }
-  .right-col {
-    flex: 1 1 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-  /* Video block */
-  .video-block iframe {
-    width: 100%;
-    height: 320px;
-    border: none;
-  }
-  /* Text blocks styling */
-  article {
-    margin-top: 1rem;
-  }
-  h2 {
-    color: #003366;
-    margin-bottom: 0.5rem;
-  }
-  img {
-    max-width: 100%;
-    height: auto;
-    margin-top: 1rem;
-    border-radius: 4px;
-  }
-  /* Bottom section with three columns */
-  .bottom-section {
-    display: flex;
-    gap: 1.5rem;
-    margin-top: 3rem;
-    flex-wrap: wrap;
-  }
-  .bottom-section article {
-    background: white;
-    padding: 1rem 1.5rem;
-    box-shadow: 0 0 8px rgba(0,0,0,0.1);
-    flex: 1 1 30%;
-    box-sizing: border-box;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Les États-Unis-now!</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: #222;
+      position: relative;
+    }
 
-  /* Disclaimer Modal */
-  .modal {
-    display: flex; /* show initially */
-    position: fixed;
-    z-index: 9999;
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.7);
-    align-items: center;
-    justify-content: center;
-  }
-  .modal.hidden {
-    display: none;
-  }
-  .modal-content {
-    background: white;
-    padding: 2rem 2.5rem;
-    max-width: 600px;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 0 15px rgba(0,0,0,0.3);
-    position: relative;
-  }
-  .modal-content h2 {
-    margin-top: 0;
-    color: #003366;
-  }
-  .modal-content p {
-    margin: 1rem 0;
-    font-size: 1rem;
-  }
-  .modal-button {
-    margin-top: 1.5rem;
-    padding: 0.7rem 2rem;
-    background: #003366;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  .modal-button:hover {
-    background: #0055aa;
-  }
+    /* Background flag with blur */
+    .background-flag {
+      background-image: url('https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      filter: blur(6px) brightness(0.90);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+    }
 
-  /* Responsive */
-  @media (max-width: 768px) {
+    /* Overlay to dim the background slightly */
+    .overlay {
+      background: rgba(255, 255, 255, 0.7);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+    }
+
+    header {
+      background: #003366;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 2rem auto 3rem;
+      padding: 0 1rem;
+    }
+
     .main-section {
-      flex-direction: column;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
     }
+
     .left-col, .right-col {
-      flex: 1 1 100%;
+      background: white;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      padding: 1rem 1.5rem;
+      box-sizing: border-box;
     }
-    .bottom-section {
+
+    .left-col {
+      flex: 1 1 55%;
+      display: flex;
       flex-direction: column;
     }
-    .bottom-section article {
-      flex: 1 1 100%;
-      margin-bottom: 1rem;
+
+    .right-col {
+      flex: 1 1 40%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
     }
-  }
-</style>
+
+    .video-block iframe {
+      width: 100%;
+      height: 320px;
+      border: none;
+    }
+
+    article {
+      margin-top: 1rem;
+    }
+
+    h2 {
+      color: #003366;
+      margin-bottom: 0.5rem;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 1rem;
+      border-radius: 4px;
+    }
+
+    .bottom-section {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .bottom-section article {
+      background: white;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      flex: 1 1 30%;
+      box-sizing: border-box;
+    }
+
+    /* Disclaimer Modal */
+    .modal {
+      display: flex;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal.hidden {
+      display: none;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 2rem 2.5rem;
+      max-width: 600px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    .modal-content h2 {
+      margin-top: 0;
+      color: #003366;
+    }
+
+    .modal-content p {
+      margin: 1rem 0;
+      font-size: 1rem;
+    }
+
+    .modal-button {
+      margin-top: 1.5rem;
+      padding: 0.7rem 2rem;
+      background: #003366;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .modal-button:hover {
+      background: #0055aa;
+    }
+
+    @media (max-width: 768px) {
+      .main-section {
+        flex-direction: column;
+      }
+
+      .left-col, .right-col {
+        flex: 1 1 100%;
+      }
+
+      .bottom-section {
+        flex-direction: column;
+      }
+
+      .bottom-section article {
+        flex: 1 1 100%;
+        margin-bottom: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
+<!-- Blurred Flag Background and Overlay -->
+<div class="background-flag"></div>
+<div class="overlay"></div>
+
 <header>
-  Les États-Unis now!
+  Les États-Unis-now!
 </header>
 
 <!-- Disclaimer Modal -->
